@@ -34,6 +34,7 @@ See demo program for suggested style.
 - /src/lib/ | Assembly libraries used by programs
 - /src/sm1.asm | Assembly definitions for the [customasm](https://github.com/hlorenzi/customasm) assembler (Read the customasm wiki for assembler usage)
 - /src/ds1-demo/ | Demo program used for the DS1
+- /export.py | Program used to export data to the memory block
 
 # DS1 "Micro"Computer
 ## Memory Structure
@@ -58,6 +59,23 @@ The score display shows a decimal number from 0-255
 
 ### Controls
 When pressing a button, it's state gets stored in a latch, so to read that value, first you must write any value to the controls to queue the input for reading, then the value can be read from the port. Bits 0-3 correspond to the buttons from left to right.
+
+## Programming the thing
+### Assembling a program (using customasm)
+``customasm PATH/TO/sm1.asm PATH/TO/CODE/file_name.asm -o OUTPUT_FILE``
+
+### Example: Assembling the ds1 demo
+``customasm src/sm1.asm src/ds1-demo/main.asm -o main``
+
+### Importing the code to scrap mechanic
+First you must export the raw binary to a format which the MT Fast Logic memory block can read.<br>
+``python3 export.py path/to/binary``
+
+Make sure the ``filepath`` variable in the python program is set correctly to the path to the file used for importing data.
+
+After exporting the data, it can now be imported by pressing "use" on the memory block
+
+![import example](https://github.com/huntabadday/TSC-SM1/raw/master/images/import_example.png)
 
 # Credits
 - Control: CLA inside the SM1
