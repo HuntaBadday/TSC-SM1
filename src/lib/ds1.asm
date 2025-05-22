@@ -1,0 +1,24 @@
+#once
+; HuntaBadday
+; ds1.asm contains definitions for each device and their address
+
+BITMAP = 0xd000
+DEBUG = 0xd100
+RANDOM = 0xd110
+
+GPIO0 = 0xd120
+GPIO1 = 0xd121
+GPIO2 = 0xd122
+GPIO3 = 0xd123
+GPIO4 = 0xd124
+GPIO5 = 0xd125
+GPIO6 = 0xd126
+GPIO7 = 0xd127
+GPIO8 = 0xd128
+GPIO9 = 0xd129
+GPIO10 = 0xd12a
+GPIO11 = 0xd12b
+GPIO12 = 0xd12c
+GPIO13 = 0xd12d
+GPIO14 = 0xd12e
+GPIO15 = 0xd12f

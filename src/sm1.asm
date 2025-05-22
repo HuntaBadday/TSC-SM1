@@ -1,3 +1,6 @@
+; SM1 assembly definitions
+; HuntaBadday
+
 #subruledef reg {
 	r0	=> 1`4
 	r1	=> 2`4
@@ -151,6 +154,32 @@
 	
 	;-------------------
 	
+	bxa {op1: reg}	=> 0b0001 @ op1 @ 0b00010000
+	bxa {addr: u16}	=> 0b0001 @ 0b000000010000 @ addr
+	
+	bna {op1: reg}	=> 0b0001 @ op1 @ 0b00011000
+	bna {addr: u16}	=> 0b0001 @ 0b000000011000 @ addr
+	
+	bxb {op1: reg}	=> 0b0001 @ op1 @ 0b00100000
+	bxb {addr: u16}	=> 0b0001 @ 0b000000100000 @ addr
+	
+	bnb {op1: reg}	=> 0b0001 @ op1 @ 0b00101000
+	bnb {addr: u16}	=> 0b0001 @ 0b000000101000 @ addr
+	
+	bxc {op1: reg}	=> 0b0001 @ op1 @ 0b01000000
+	bxc {addr: u16}	=> 0b0001 @ 0b000001000000 @ addr
+	
+	bnc {op1: reg}	=> 0b0001 @ op1 @ 0b01001000
+	bnc {addr: u16}	=> 0b0001 @ 0b000001001000 @ addr
+	
+	bxd {op1: reg}	=> 0b0001 @ op1 @ 0b10000000
+	bxd {addr: u16}	=> 0b0001 @ 0b000010000000 @ addr
+	
+	bnd {op1: reg}	=> 0b0001 @ op1 @ 0b10001000
+	bnd {addr: u16}	=> 0b0001 @ 0b000010001000 @ addr
+	
+	;-------------------
+	
 	nop	=> 0b1000 @ 0b000000000000
 	
 	int	{op1: reg}	=> 0b1001 @ op1 @ 0b00000000
@@ -217,10 +246,10 @@
 		or st, 0b0010
 	}
 	
-	clm => asm {
+	cln => asm {
 		and st, 0b1111111111111011
 	}
-	sem => asm {
+	sen => asm {
 		or st, 0b0100
 	}
 	
